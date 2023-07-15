@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+.main-container{
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.main-container__elements{
+	display: flex;
+	flex-direction: column;
+	padding: 1.5rem;
+	border: 2px solid aquamarine;
+	border-radius: 1.5rem;
+	height: 40vh;
+	overflow: scroll;
+}
+.acertos-and-erro-container{
+	width: 50%;
+	display: flex;
+	justify-content: space-around;
+}
+.acertos{
+	color: green;
+}
+.erros{
+	color: red;
+}
+.title{
+	font-family: 'Lilita One', cursive;
+	color: transparent;
+	-webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #000;
+}
+iframe{
+	margin-top: 1rem;
+}
+.number-text{
+	margin-left: .70rem;
+}
+.input-resposta-value{
+	margin-top: 1rem;
+}
+.btn-resposta{
+	background: #18E7E3;
+	color: #FFF;
+	border: none;
+	padding: .70rem;
+	margin-top: 1.5rem;
+	border-radius: 1.5rem;
+	font-weight: 800;
+	cursor: pointer;
+}
+.text-container{
+	display: flex;
+	align-items: center;
+}
+.respost-err{
+	display: none;
+}
+.respost-err.visible{
+	color: red;
+	margin-top: 1rem;
+	display: block;
+}
+.resultados-container{
+	margin-top: .90rem;
+}
