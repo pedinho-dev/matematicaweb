@@ -10,6 +10,8 @@ const containerResult = document.querySelector('.resultados-container')
 const respostaErrada = document.querySelector('.respost-err')
 const acertos = document.querySelector('.acertos')
 const erros = document.querySelector('.erros')
+const score = document.querySelector('.main-container__score')
+const avatarUser = document.querySelector('.avatar-user')
 
 let sorteioNumero = Math.random() * 10
 let sorteioNumero2 = Math.random() * 10
@@ -19,6 +21,11 @@ let sorteioNumeroInt2 = Math.floor(sorteioNumero2)
 let count  = 0
 let countError  = 0
 
+if(localStorage.scoreSave){
+	score.textContent = `Maior pontuação: ${localStorage.scoreSave}`
+	avatarUser.textContent = `+${localStorage.scoreSave}`
+}
+
 const contadorAcertos = () => {
 	count++
 	acertos.textContent = `Acertos: ${count}`
@@ -26,6 +33,20 @@ const contadorAcertos = () => {
 const contadorErros = () => {
 	countError++
 	erros.textContent = `Erros: ${countError}`
+}
+
+const scoreCount = () => {
+	if(localStorage.scoreSave >= count) {
+		score.textContent = `Maior pontuação: ${localStorage.scoreSave}`
+		avatarUser.textContent = `+${localStorage.scoreSave}`
+	}else if(count != 0){
+		avatarUser.textContent = `+${count}`
+		score.textContent = `Maior pontuação ${count}`
+		let scoreCountSave = count
+		localStorage.setItem("scoreSave", scoreCountSave)
+	}else{
+		console.log('massa')
+	}
 }
 
 const armazenarResposta = () => {
@@ -58,6 +79,7 @@ const enviarResposta = () => {
 	 }else if (inputResposta.value != 0) {
 	 	respostaErrada.classList.add('visible')
 	 	contadorErros()
+		scoreCount()
 	 	
 	 }else {
 	 	console.log('resposta errada')

@@ -4,32 +4,84 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="login.js" defer></script>
 		<script type="text/javascript" src="script.js" defer></script>
 		<title></title>
 	</head>
 	<body>
-		<div class="main-container">
+		<header class="header-container">
+			<div class="header-container__image-container">
+				<img src="images/logo.jpeg" alt="logo" class="header-container__image-container__img">
+			</div>
+		</header>
+		<main class="main-container">
+			<p class="main-container__score">Maior pontuação:</p>
 			<div class="acertos-and-erro-container">
 				<span class="acertos"></span>
 				<span class="erros"></span>
 			</div>
+			<div class="text-container">
+				<p>Resolva:</p>
+				<p class="number-text"></p>
+				<span>X</span>
+				<p class="number-text2">b</p>
+			</div>
 			<div class="main-container__elements">
-				<h1 class="title">Matemática</h1>
-				<div class="text-container">
-					<p>Resolva:</p>
-					<p class="number-text"></p>
-					<span>X</span>
-					<p class="number-text2">b</p>
-				</div>
+				<h1 class="title">Multiplicação</h1>
 				<input type="text" class="input-resposta-value" placeholder="Digite a resposta">
 				<button class="btn-resposta">RESPONDER</button>
 				<p class="respost-err">Resposta errada.</p>
 				<div class="resultados-container">
-					
+					<h3 class="main-container__elements__history-text">Histórico de respostas</h3>
 				</div>
 			</div>
-			<!--<iframe width="360" height="215" src="https://www.youtube.com/embed/izaSmMXZRgk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
-			
-		</div>
+		</main>
+		<section class="section-container">
+			<div class="title-container">
+				<h3 class="ranking-title">Ranking</h3>
+				<img src="images/icons8-coroa-48.png" alt="icone de coroa" class="icon-coroa">
+			</div>
+			<ul class="section-container__raking">
+				<li class="section-container__raking__items">
+					<div class="ranking-items-img">
+						<img src="images/pitbull.png" alt="foto de perfil" class="ranking-avatar">
+					</div>
+					<p class="avatar-name">Mariana</p>
+					<div class="ranking-score">
+						<p class="avatar-user">0</p>
+						<img src="images/icons8-troféu-48.png" alt="troféu" class="trofeu-icon">
+					</div>
+				</li>
+				<li class="section-container__raking__items">
+					<div class="ranking-items-img">
+						<img src="images/samoyed.png" alt="foto de perfil" class="ranking-avatar">
+					</div>
+					<p>Pedro</p>
+					<div class="ranking-score">
+						<p>+156</p>
+						<img src="images/icons8-troféu-48.png" alt="troféu" class="trofeu-icon">
+					</div>
+				</li>
+				<li class="section-container__raking__items">
+					<div class="ranking-items-img">
+						<img src="images/shiba-inu.png" alt="foto de perfil" class="ranking-avatar">
+					</div>
+					<p>Jéssica</p>
+					<div class="ranking-score">
+						<p>+142</p>
+						<img src="images/icons8-troféu-48.png" alt="troféu" class="trofeu-icon">
+					</div>
+				</li>
+			</ul>
+		</section>
+		<section class="login">
+			<img src="images/shiba-inu.png" alt="foto de perfil" class="avatar-login">
+			<p class="avatar-text-name">Digite seu nome para começar</p>
+			<input type="text" class="login-name" placeholder="Seu nome">
+			<button class="submit-name">Enviar</button>
+		</section>
+		<footer>
+			<span>Versão 1.0.1</span>
+		</footer>
 	</body>
 </html>
