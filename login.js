@@ -14,11 +14,11 @@ const enviarname = () => {
         let nameUser = inputLogin.value
         localStorage.setItem("name", nameUser)
         localStorage.setItem("confirm", "confirmado")
+        containerLogin.style.display = "none"
     }
-    containerLogin.style.display = "none"
 }
 
-
 submitName.addEventListener('click', enviarname)
+
 
 

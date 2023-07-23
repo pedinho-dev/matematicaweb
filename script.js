@@ -12,6 +12,8 @@ const acertos = document.querySelector('.acertos')
 const erros = document.querySelector('.erros')
 const score = document.querySelector('.main-container__score')
 const avatarUser = document.querySelector('.avatar-user')
+const recordWinClose = document.querySelector('.close-record-win')
+const recordWinContainer = document.querySelector('.recorder-win')
 
 let sorteioNumero = Math.random() * 10
 let sorteioNumero2 = Math.random() * 10
@@ -29,6 +31,9 @@ if(localStorage.scoreSave){
 const contadorAcertos = () => {
 	count++
 	acertos.textContent = `Acertos: ${count}`
+	if(count === 10) {
+		recordWinContainer.classList.toggle('win')
+	}
 }
 const contadorErros = () => {
 	countError++
@@ -97,6 +102,9 @@ const inserirItem = (evento) => {
 
 }
 
+recordWinClose.addEventListener('click', () => {
+	recordWinContainer.classList.toggle('win')
+})
 
 btnResposta.addEventListener('click', enviarResposta)
 document.addEventListener('keypress', inserirItem)
