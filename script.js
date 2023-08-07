@@ -11,9 +11,12 @@ const respostaErrada = document.querySelector('.respost-err')
 const acertos = document.querySelector('.acertos')
 const erros = document.querySelector('.erros')
 const score = document.querySelector('.main-container__score')
+const containerElements = document.querySelector('.main-container__elements')
 const avatarUser = document.querySelector('.avatar-user')
 const recordWinClose = document.querySelector('.close-record-win')
 const recordWinContainer = document.querySelector('.recorder-win')
+const respondeHelpContainer = document.querySelector('.response-help-container')
+
 
 let sorteioNumero = Math.random() * 10
 let sorteioNumero2 = Math.random() * 10
@@ -22,10 +25,19 @@ let sorteioNumeroInt2 = Math.floor(sorteioNumero2)
 
 let count  = 0
 let countError  = 0
+let consecutiveWrongAnswers = 0
 
 if(localStorage.scoreSave){
 	score.textContent = `Maior pontuação: ${localStorage.scoreSave}`
 	avatarUser.textContent = `+${localStorage.scoreSave}`
+}
+
+const vibrateAnimation = () => {
+	if (containerElements.classList.contains("vibrate")) {
+		containerElements.classList.toggle('vibrate')
+	}else{
+		containerElements.classList.toggle('vibrate')
+	}
 }
 
 const contadorAcertos = () => {
@@ -54,6 +66,7 @@ const scoreCount = () => {
 	}
 }
 
+
 const armazenarResposta = () => {
 
 	const criarP = document.createElement("p")
@@ -81,17 +94,31 @@ const enviarResposta = () => {
 
 		mostrarNumeros()
 		inputResposta.value = ""
+		respondeHelpContainer.innerHTML = ""
 	 }else if (inputResposta.value != 0) {
 	 	respostaErrada.classList.add('visible')
 	 	contadorErros()
 		scoreCount()
+		vibrateAnimation()
+		consecutiveWrongAnswers++
 	 	
 	 }else {
 	 	console.log('resposta errada')
-	 } 
+	 }
 
-
+	const motrarResposta = () => {
+		respondeHelpContainer.innerHTML = `<div class="response-help">
+				<p class="response-text">Uma ajudinha, a respsta é: ${result}</p>
+			</div>`
+	}
 	console.log(arr1[sorteioNumeroInt] + "" + "X" + "" + arr2[sorteioNumeroInt2])
+
+	console.log(consecutiveWrongAnswers)
+	 if (consecutiveWrongAnswers === 5) {
+	 	motrarResposta()
+	 	console.log(`Uma ajudinha, a resposta é: ${result}`)
+	 	consecutiveWrongAnswers = 0
+	 }
 }
 
 const inserirItem = (evento) => {
