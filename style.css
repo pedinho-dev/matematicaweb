@@ -166,6 +166,7 @@ iframe{
 .login-name{
 	padding: .50rem;
 	margin-top: 1rem;
+	width: 84%;
 }
 .avatar-login{
 	width: 7rem;

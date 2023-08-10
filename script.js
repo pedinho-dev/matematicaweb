@@ -16,7 +16,7 @@ const avatarUser = document.querySelector('.avatar-user')
 const recordWinClose = document.querySelector('.close-record-win')
 const recordWinContainer = document.querySelector('.recorder-win')
 const respondeHelpContainer = document.querySelector('.response-help-container')
-
+const dinamicRankingUser = document.querySelector('.ranking-score-user')
 
 let sorteioNumero = Math.random() * 10
 let sorteioNumero2 = Math.random() * 10
@@ -45,6 +45,11 @@ const contadorAcertos = () => {
 	acertos.textContent = `Acertos: ${count}`
 	if(count === 10) {
 		recordWinContainer.classList.toggle('win')
+	}
+	if (count === 5) {
+		let dinamicCount = count * 2
+		let dinamicRankingUserNumber = parseInt(dinamicRankingUser.textContent)
+ 		dinamicRankingUser.textContent = dinamicRankingUserNumber + dinamicCount
 	}
 }
 const contadorErros = () => {
